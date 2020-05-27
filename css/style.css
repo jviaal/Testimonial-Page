@@ -1,0 +1,192 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Inter", sans-serif;
+  min-height: 100vh;
+}
+.svg-curve {
+  position: absolute;
+  bottom: 0%;
+  width: 100%;
+}
+.svg-bg {
+  width: 85%;
+  top: 4%;
+  right: 7%;
+}
+.svg-quotes {
+  width: 20%;
+  top: 57%;
+  left: 40%;
+}
+.svg {
+  z-index: -1;
+}
+.svg img {
+  width: 100%;
+}
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.svg {
+  position: absolute;
+}
+main {
+  width: 100%;
+}
+.slider-container {
+  width: 65%;
+  position: relative;
+  margin-top: 15%;
+}
+.slider-img {
+  width: 100%;
+  box-shadow: 3px 10px 20px rgba(0, 0, 0, 0.5);
+}
+.slider-buttons {
+  display: flex;
+  position: absolute;
+  bottom: 0%;
+  right: 50%;
+  transform: translate(50%, 35%);
+  width: 30%;
+}
+button {
+  outline: none;
+  width: 100%;
+  padding: 0.4rem;
+  border: none;
+  background-color: #fff;
+}
+.prev-btn {
+  border-top-left-radius: 50%;
+  border-bottom-left-radius: 50%;
+}
+.next-btn {
+  margin-left: -5px;
+  border-top-right-radius: 50%;
+  border-bottom-right-radius: 50%;
+}
+.statement-container {
+  z-index: 10;
+  font-size: 18px;
+  width: 85%;
+  margin-top: 23%;
+  font-weight: 300;
+}
+.statement-paragraph {
+  text-align: center;
+}
+.statement-name {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-weight: 700;
+  color: hsl(240, 38%, 20%);
+  margin-top: 5%;
+}
+.statement-position {
+  margin-top: 3px;
+  color: hsl(240, 18%, 77%);
+}
+@media (min-width: 450px) {
+  body {
+    display: flex;
+    justify-content: center;
+  }
+  main {
+    width: 75%;
+    position: relative;
+    align-items: flex-start;
+    margin: 18% 0;
+    justify-content: center;
+  }
+  .statement-container {
+    margin: 0;
+    width: 65%;
+    font-size: 32px;
+  }
+  .statement-paragraph {
+    text-align: left;
+  }
+  .slider-container {
+    position: absolute;
+    width: 45%;
+    margin: 0;
+  }
+  .slider-buttons {
+    width: 20%;
+    right: 75%;
+  }
+  .statement-name {
+    display: block;
+    font-size: 1.3rem;
+  }
+  .statement-position {
+    margin-left: 5px;
+  }
+  .svg-bg {
+    width: 45%;
+    top: 14%;
+  }
+  .svg-curve {
+    left: 0;
+    width: 50%;
+  }
+  .svg-quotes {
+    width: 9%;
+    top: 25%;
+    left: 20%;
+  }
+}
+@media (min-width: 700px) {
+  .statement-container {
+    font-size: 1.2rem;
+  }
+  .svg-bg {
+    width: 50%;
+    top: 25%;
+  }
+  .svg-quotes {
+    top: 35%;
+  }
+  .slider-buttons {
+    width: 30%;
+  }
+  button {
+    padding: 0.5rem;
+  }
+  .statement-name {
+    font-size: 1rem;
+  }
+}
+@media (min-width: 1300px) {
+  main {
+    width: 65%;
+  }
+  .svg-bg {
+    top: 20%;
+    right: 10%;
+    width: 35%;
+  }
+  .svg-quotes {
+    width: 7%;
+    top: 30%;
+    left: 25%;
+  }
+  .slider-container {
+    width: 35%;
+  }
+  .slider-buttons {
+    width: 25%;
+  }
+  .statement-container {
+    font-size: 1.5rem;
+  }
+}
