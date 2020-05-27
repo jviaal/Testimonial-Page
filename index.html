@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.0/anime.min.js"></script>
+    <title>Frontend Mentor | Coding Bootcamp Testimonials Slider</title>
+  </head>
+  <body>
+    <div class="svg svg-bg">
+      <img src="./images/pattern-bg.svg" alt="" />
+    </div>
+    <div class="svg svg-curve">
+      <img src="./images/pattern-curve.svg" alt="" />
+    </div>
+    <div class="svg svg-quotes">
+      <img src="./images/pattern-quotes.svg" alt="" />
+    </div>
+    <main>
+      <div id="slider-container" class="slider-container">
+        <img id="slider-img" class="slider-img" src="" alt="profile" />
+        <div class="slider-buttons">
+          <button class="prev-btn" id="prev-btn">
+            <img src="./images/icon-prev.svg" alt="" />
+          </button>
+          <button class="next-btn" id="next-btn">
+            <img src="./images/icon-next.svg" alt="" />
+          </button>
+        </div>
+      </div>
+      <div id="statement-container" class="statement-container">
+        <p id="statement-paragraph" class="statement-paragraph"></p>
+        <div class="statement-name">
+          <span id="statement-name"></span>
+          <span id="statement-position" class="statement-position"></span>
+        </div>
+      </div>
+    </main>
+    <script>
+      const sliderImg = document.querySelector("#slider-img");
+      const statementP = document.querySelector("#statement-paragraph");
+      const name = document.querySelector("#statement-name");
+      const position = document.querySelector("#statement-position");
+      const prevBtn = document.querySelector("#prev-btn");
+      const nextBtn = document.querySelector("#next-btn");
+      const statementContainer = document.querySelector("#statement-container");
+      const sliderContainer = document.querySelector("#slider-container");
+      let sliderIndex = 0;
+      const data = [
+        {
+          id: 1,
+          statement: ` “ I’ve been interested in coding for a while but never taken the jump, until now. I couldn’t recommend this course enough. I’m now in the job of my dreams and so excited about the future. ” `,
+          name: "Tanya Sinclair",
+          position: "UX Engineer",
+          profilePhotoSrc: "./images/image-tanya.jpg",
+        },
+        {
+          id: 2,
+          statement: ` “ If you want to lay the best foundation possible I’d recommend taking this course.
+      The depth the instructors go into is incredible. I now feel so confident about
+      starting up as a professional developer. ”`,
+          name: "John Tarkpor",
+          position: "Junior Front-end Developer",
+          profilePhotoSrc: "./images/image-john.jpg",
+        },
+      ];
+      function displayData() {
+        animate();
+        sliderImg.src = data[sliderIndex].profilePhotoSrc;
+        statementP.innerText = data[sliderIndex].statement;
+        name.innerText = data[sliderIndex].name;
+        position.innerText = data[sliderIndex].position;
+      }
+      function animate() {
+        anime({
+          targets: statementContainer,
+          keyframes: [
+            { opacity: 0, left: -50 },
+            { opacity: 1, left: 0 },
+          ],
+          duration: 400,
+          easing: "easeInQuad",
+        });
+        anime({
+          targets: sliderContainer,
+          keyframes: [
+            { opacity: 0, right: -50 },
+            { opacity: 1, right: 0 },
+          ],
+          duration: 400,
+          easing: "easeInQuad",
+        });
+      }
+      function nextSlide() {
+        animate();
+        if (sliderIndex >= data.length - 1) {
+          sliderIndex = 0;
+          sliderImg.src = data[sliderIndex].profilePhotoSrc;
+          statementP.innerText = data[sliderIndex].statement;
+          name.innerText = data[sliderIndex].name;
+          position.innerText = data[sliderIndex].position;
+        } else {
+          sliderIndex += 1;
+          sliderImg.src = data[sliderIndex].profilePhotoSrc;
+          statementP.innerText = data[sliderIndex].statement;
+          name.innerText = data[sliderIndex].name;
+          position.innerText = data[sliderIndex].position;
+        }
+      }
+      function prevSlide() {
+        sliderContainer.style.opacity = 0;
+        statementContainer.style.opacity = 0;
+        animate();
+        if (sliderIndex == 0) {
+          sliderIndex = data.length - 1;
+          sliderImg.src = data[sliderIndex].profilePhotoSrc;
+          statementP.innerText = data[sliderIndex].statement;
+          name.innerText = data[sliderIndex].name;
+          position.innerText = data[sliderIndex].position;
+        } else {
+          sliderIndex -= 1;
+          sliderImg.src = data[sliderIndex].profilePhotoSrc;
+          statementP.innerText = data[sliderIndex].statement;
+          name.innerText = data[sliderIndex].name;
+          position.innerText = data[sliderIndex].position;
+        }
+      }
+      nextBtn.addEventListener("click", nextSlide);
+      prevBtn.addEventListener("click", prevSlide);
+      window.addEventListener("load", displayData);
+    </script>
+  </body>
+</html>
